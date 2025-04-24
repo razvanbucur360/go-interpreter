@@ -25,7 +25,6 @@ func (a *AstPrinter) printStmt(stmt Stmt) string {
         return "nil"
     }
     
-    // Handle each statement type explicitly
     switch s := stmt.(type) {
     case *Block:
         return a.visitBlockStmt(s).(string)
@@ -191,20 +190,21 @@ func (a *AstPrinter) visitCallExpr(expr *CallExpression) interface{} {
 	return sb.String()
 }
 
+//Actual implementation not needed unless printing of the expressions is required. The function declarations are needed in order fot the AstPrinter to be an ExprVisitor
 func (a *AstPrinter) visitGetExpr(expr *GetExpression) interface{} {
-    return nil //TODO 
+    return nil
 }
 
 func (a *AstPrinter) visitSetExpr(expr *SetExpression) interface{} {
-    return nil //TODO 
+    return nil
 }
 
 func (a *AstPrinter) visitThisExpr(expr *ThisExpr) interface{} {
-    return nil //TODO 
+    return nil 
 }
 
 func (a *AstPrinter) visitSuperExpr(expr *SuperExpr) interface{} {
-    return nil //TODO
+    return nil 
 }
 
 // Helper methods

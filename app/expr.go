@@ -126,12 +126,3 @@ func (e *ThisExpr) Accept(visitor ExprVisitor) interface{} {
 func (e *SuperExpr) Accept(visitor ExprVisitor) interface{} {
 	return visitor.visitSuperExpr(e)
 }
-/*
-Visitor:
-1. Parent class which has the accept(visitor GeneralVisitor)
-2. Child classes which inherit from Parent class
-3. GeneralVisitor interface which declares methods for each child class. e.g. visitBinary(expr BinaryExpr) visitUnary (expr UnaryExpr)
-4. Child classes call the method corresponding to their class type. e.g. ExprBinary calls visitBinary(this)
-5. To extend functionality, declare a class that implements the GenearalVisitor interface and override the method.
-6. Declare a object as GeneralVisitor but instantiate it as the class which implements the specialized behavior.
-*/

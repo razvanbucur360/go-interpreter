@@ -22,13 +22,10 @@ func (i *Interpreter) interpret(statements []Stmt) {
 	defer func() {
 		if r := recover(); r != nil {
 			if runtimeErr, ok := r.(RuntimeError); ok && !hasError {
-				// Only handle runtime error if there were no parse errors
 				handleRuntimeError(runtimeErr)
 			} else if !hasError {
-				// Re-panic for unexpected errors if no parse errors
 				panic(r)
 			}
-			// If hasError is true, we let the parse error take precedence
 		}
 	}()
 
